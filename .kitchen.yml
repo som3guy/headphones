@@ -1,0 +1,21 @@
+---
+driver:
+  name: vagrant 
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-6.8
+    driver:
+      network:
+      - ["private_network", {ip: "192.168.33.40"}]
+
+suites:
+  - name: default
+    run_list:
+      - recipe[headphones::default]
+    attributes:
