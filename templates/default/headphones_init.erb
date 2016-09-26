@@ -41,7 +41,7 @@ case "$1" in
         stop
         ;;
     status)
-        status -p <%= node['headphones']['directory']['pid_dir'] %>/headphones.pid $prog
+        status <%= node['headphones']['directory']['pid_dir'] %>/headphones.pid $prog
         ;;
     restart)
         stop

@@ -31,14 +31,20 @@ git "#{node['headphones']['directory']['user']}/headphones" do
   action :checkout
 end
 
-template 'headphones_service_rhel-6' do
+template 'headphones_service_file' do
   path '/etc/init.d/headphones'
-  source 'headphones_init.erb'
+  source 'headphones_init_test.erb'
   mode '775'
   owner 'root'
   group 'root'
   only_if { node['headphones']['release'] == 6 }
 end
+
+# poise_service 'headphones' do
+#   provider :sysvinit
+#   user 'headphones'
+#   command '/home/headphones/headphones/Headphones.py --daemon --config /etc/headphones/headphones.ini --datadir /home/headphones/.headphones --nolaunch --quiet'
+# end
 
 template 'headphones_config' do
   path "#{node['headphones']['directory']['config']}/headphones.ini"
