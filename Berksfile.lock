@@ -2,11 +2,6 @@ DEPENDENCIES
   headphones
     path: .
     metadata: true
-  poise-service
 
 GRAPH
   headphones (0.1.0)
-    poise-service (~> 1.4.0)
-  poise (2.7.1)
-  poise-service (1.4.0)
-    poise (~> 2.0)

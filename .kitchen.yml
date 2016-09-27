@@ -9,7 +9,7 @@ verifier:
   name: inspec
 
 platforms:
-  - name: centos-6.8
+  - name: centos-7.2
     driver:
       network:
       - ["private_network", {ip: "192.168.33.40"}]

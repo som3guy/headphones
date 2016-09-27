@@ -1,0 +1,3 @@
+# Rubocop overrides
+Metrics/LineLength:
+  Max: 85

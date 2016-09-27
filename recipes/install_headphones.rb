@@ -40,11 +40,14 @@ template 'headphones_service_file' do
   only_if { node['headphones']['release'] == 6 }
 end
 
-# poise_service 'headphones' do
-#   provider :sysvinit
-#   user 'headphones'
-#   command '/home/headphones/headphones/Headphones.py --daemon --config /etc/headphones/headphones.ini --datadir /home/headphones/.headphones --nolaunch --quiet'
-# end
+template 'headphones_service_file' do
+  path '/lib/systemd/system/headphones.service'
+  source 'headphones.service.erb'
+  mode '775'
+  owner 'root'
+  group 'root'
+  only_if { node['headphones']['release'] == 7 }
+end
 
 template 'headphones_config' do
   path "#{node['headphones']['directory']['config']}/headphones.ini"
@@ -67,5 +70,3 @@ end
 service 'headphones' do
   action :start
 end
-
-

@@ -1,0 +1,16 @@
+# Headphones - Automatic music downloader for SABnzbd
+#
+# Service Unit file for systemd system manager
+
+[Unit]
+Description=Headphones - Automatic music downloader for SABnzbd
+
+[Service]
+ExecStart=/home/<%= node['headphones']['user'] %>/headphones/Headphones.py --daemon --config /etc/headphones/headphones.ini --datadir /home/<%= node['headphones']['user'] %>/.headphones --nolaunch --quiet
+GuessMainPID=no
+Type=forking
+User=<%= node['headphones']['user'] %>
+Group=<%= node['headphones']['user'] %>
+
+[Install]
+WantedBy=multi-user.target
