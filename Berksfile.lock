@@ -1,0 +1,7 @@
+DEPENDENCIES
+  headphones
+    path: .
+    metadata: true
+
+GRAPH
+  headphones (0.1.0)
